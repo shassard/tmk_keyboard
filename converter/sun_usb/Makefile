@@ -2,7 +2,7 @@
 TARGET = sun_usb
 
 # Directory common source filess exist
-TOP_DIR = ../..
+TMK_DIR = ../../tmk_core
 
 # Directory keyboard dependent files exist
 TARGET_DIR = .
@@ -20,9 +20,10 @@ CONFIG_H = config.h
 # MCU name, you MUST set this to match the board you are using
 # type "make clean" after changing this, so all files will be rebuilt
 #MCU = at90usb162       # Teensy 1.0
-MCU = atmega32u4       # Teensy 2.0
+#MCU = atmega32u4       # Teensy 2.0
 #MCU = at90usb646       # Teensy++ 1.0
 #MCU = at90usb1286      # Teensy++ 2.0
+MCU = atmega32u2
 
 
 # Processor frequency.
@@ -62,6 +63,7 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 MOUSEKEY_ENABLE = yes	# Mouse keys
 EXTRAKEY_ENABLE = yes	# Audio control and System control
 CONSOLE_ENABLE = yes	# Console for debug
+COMMAND_ENABLE = yes    # Commands for debug and configuration
 #NKRO_ENABLE = yes	# USB Nkey Rollover
 
 
@@ -74,10 +76,10 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 
 # Search Path
 VPATH += $(TARGET_DIR)
-VPATH += $(TOP_DIR)
+VPATH += $(TMK_DIR)
 
 
-include $(TOP_DIR)/protocol/lufa.mk
-include $(TOP_DIR)/protocol.mk
-include $(TOP_DIR)/common.mk
-include $(TOP_DIR)/rules.mk
+include $(TMK_DIR)/protocol/lufa.mk
+include $(TMK_DIR)/protocol.mk
+include $(TMK_DIR)/common.mk
+include $(TMK_DIR)/rules.mk
